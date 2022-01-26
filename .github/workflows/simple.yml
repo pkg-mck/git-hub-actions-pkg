@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: echo a string
-        run:  eccho "Hello World"
+        run:  echo "Hello World"
       - name: multiline script
         run: |
           node -v
@@ -13,8 +13,7 @@ jobs:
       - name: python command
         run: |
           import platform
-          print
-          (platform.processor())
+          print(platform.processor())
         shell: python
 
         
