@@ -3,10 +3,17 @@ on:
   #schedule: 
     #- cron: "*/3 * * * *"
   repository_dispatch:
+    branches: 
+      - master
+      - develop
     types: [build]
   push:
+    branches:
+      - develop
   pull_request:
-    types: [opened, closed, assigned, reopened]
+    branches:
+      - master
+    #types: [opened, closed, assigned, reopened]
 
 jobs:
   run-github-actions:
