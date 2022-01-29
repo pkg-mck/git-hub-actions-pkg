@@ -4,7 +4,6 @@ on:
     #- cron: "*/3 * * * *"
   repository_dispatch:
     branches: 
-      - master
       - develop
     types: [build]
   push:
@@ -20,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Access client payload from repo repository_dispatch
-        run: echo ${{ github.event.client_payload.env }}
+        run: echo ${{ github.event.client_payload.env }} from dev branch
       - name: List Files
         run: |
           pwd
