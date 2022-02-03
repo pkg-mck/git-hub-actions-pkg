@@ -7,8 +7,17 @@ on:
       - develop
     types: [build]
   push:
-    branches:
-      - develop
+    branches: #branches-ignore to exclude few branches
+      - master
+      # - feature/* matches feature/feata, feature/featb doesn't match feature/feat/a
+      # - feature/** matches feature/feat/a
+      # to exclude a specific feature from regex use !feature/featc
+    #tags:   tags-ignore for excluding
+       #- v1.*
+    #paths:   paths-ignore
+       #- '**.js'
+       #- 'docs/**'
+
   pull_request:
     branches:
       - master
