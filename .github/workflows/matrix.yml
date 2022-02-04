@@ -12,7 +12,7 @@ jobs:
             node_version: 10
         inlcude:
           - os: ubuntu-latest
-            node_version: 4
+            node_version: 8
             is_ubuntu_4: "true" # we can add a variable or values that are not part of matrix
       #fail-fast: true
       #max-parallel: 2
