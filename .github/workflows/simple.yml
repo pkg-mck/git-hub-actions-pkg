@@ -9,6 +9,8 @@ jobs:
     steps: 
       - name: echo a string
         run:  echo "Hello World"
+        continue-on-error: true
+        timeout-minutes: 5 #default is 360 for a job
       - name: multiline script
         run: |
           node -v
@@ -21,6 +23,7 @@ jobs:
   run-windows-command:
     runs-on: windows-latest
     needs: "run-shell-command"
+    
     steps:
       - name: Directory PowerShell
         run: Get-Location
