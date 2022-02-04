@@ -8,8 +8,8 @@ jobs:
         os: [ubuntu-latest, windows-latest] # this jobs will run n times os * m times node_version = 2 *3 = 6
         node_version: [6, 8, 10]
         exclude: 
-          - os: [windows-latest, ubuntu-latest]
-            node_version: [8, 10]
+          - os:  ubuntu-latest
+            node_version: 10
         inlcude:
           - os: ubuntu-latest
             node_version: 4
@@ -29,4 +29,4 @@ jobs:
       - name: Log Node Version
         run: |
           node -v
-          IS-UBUNTU-4
+          echo $IS-UBUNTU-4
