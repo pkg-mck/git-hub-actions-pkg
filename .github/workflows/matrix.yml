@@ -4,16 +4,29 @@ on: push
 jobs: 
   node-version:
     strategy: 
-      matrix:
-        os: [ubuntu-latest, windows-latest] # this jobs will run n times os * m times node_version = 2 *3 = 6
-        node_version: [6, 8, 10]
-        inlcude:
-          - os: ubuntu-latest
-            node_version: 8
-            is_ubuntu_8: "true" # we can add a variable or values that are not part of matrix
-        exclude: 
-          - os:  ubuntu-latest
-            node_version: 10
+        matrix:
+          os: [macos-latest, ubuntu-latest, windows-latest] 
+          node_version: [6, 8, 10]
+          include: 
+            - os: ubuntu-latest
+              node_version: 8
+              is_ubuntu_8: "true"
+          exclude:
+            - os: ubuntu-latest
+              node_version: 6
+            - os: macos-latest
+              node_version: 8
+    # strategy: 
+    #   matrix:
+    #     os: [ubuntu-latest, windows-latest] # this jobs will run n times os * m times node_version = 2 *3 = 6
+    #     node_version: [6, 8, 10]
+    #     inlcude:
+    #       - os: ubuntu-latest
+    #         node_version: 8
+    #         is_ubuntu_8: "true" # we can add a variable or values that are not part of matrix
+    #     exclude: 
+    #       - os:  ubuntu-latest
+    #         node_version: 10
 
       #fail-fast: true
       #max-parallel: 2
