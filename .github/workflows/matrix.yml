@@ -7,9 +7,18 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest] # this jobs will run n times os * m times node_version = 2 *3 = 6
         node_version: [6, 8, 10]
+        exclude: 
+          - os: [windows-latest, ubuntu-latest]
+            node_version: [8, 10]
+        inlcude:
+          - os: ubuntu-latest
+            node_version: 4
+            is_ubuntu_4: "true" # we can add a variable or values that are not part of matrix
       #fail-fast: true
       #max-parallel: 2
     runs-on: ubuntu-latest
+    env:
+      IS-UBUNTU-4: ${{ matrix.is_ubuntu_4}}
     steps:
       - name: Log Node Version
         run: node -v
@@ -18,4 +27,6 @@ jobs:
         with:
           node-version: ${{ matrix. node_version }}
       - name: Log Node Version
-        run: node -v
+        run: |
+          node -v
+          IS-UBUNTU-4
